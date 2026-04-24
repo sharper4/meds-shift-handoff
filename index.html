@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEDS Shift Handoff</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header card">
+      <div>
+        <h1>MEDS Shift Handoff</h1>
+        <p>Capture key status updates and copy a clean handoff table into email.</p>
+      </div>
+    </header>
+
+    <section class="content-grid">
+      <section class="form-column card" aria-label="Shift handoff input form">
+        <h2>Shift Notes Input</h2>
+        <p class="helper">Type directly or paste rich content (links, tables, images) into any response box.</p>
+
+        <section class="meta-fields" aria-label="Handoff header fields">
+          <div class="meta-field">
+            <label for="handoffDate">Handoff Date</label>
+            <input id="handoffDate" type="date" />
+          </div>
+          <div class="meta-field">
+            <label for="shiftName">Shift Type</label>
+            <select id="shiftName">
+              <option value="">-- Select Shift --</option>
+              <option value="US to India">US to India</option>
+              <option value="India to US">India to US</option>
+            </select>
+          </div>
+          <div class="meta-field">
+            <label for="engineerName">Engineer Name</label>
+            <input id="engineerName" type="text" placeholder="Your name" />
+          </div>
+        </section>
+
+        <div id="sectionsContainer" class="sections-container"></div>
+
+        <div class="form-actions">
+          <button id="copyBtn" class="btn btn-primary" type="button">Copy Handoff Table</button>
+          <button id="composeEmailBtn" class="btn" type="button">Open Outlook Draft</button>
+          <button id="clearBtn" class="btn" type="button">Clear All</button>
+        </div>
+      </section>
+
+      <section class="output-column" aria-label="Handoff table preview">
+        <article class="card output-card">
+          <h2>Handoff Table</h2>
+          <div id="tablePreview" class="output-preview" aria-live="polite"></div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <template id="sectionTemplate">
+    <article class="question-row">
+      <label class="question-label"></label>
+      <div
+        class="rich-editor"
+        contenteditable="true"
+        role="textbox"
+        aria-multiline="true"
+        spellcheck="true"
+        data-placeholder="Enter notes, paste table, links, or images..."
+      ></div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
