@@ -6,7 +6,8 @@ const topics = [
   "Dynatrace Alerts (outstanding, or insights to high volume over the previous shift)",
   "Pending emails or actions requiring continued assistance",
   "Current unresolved Exchange advisories",
-  "Teams Awareness (open area for something that might not fit into another category)"
+  "PST Ingestions",
+  "Team Awareness (open area for something that might not fit into another category)"
 ];
 
 const DRAFT_SERVICE_URL = "http://localhost:5050/create-draft";
